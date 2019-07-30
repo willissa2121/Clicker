@@ -1,6 +1,7 @@
 import React from 'react'
 import Cards from './components/Cards'
 import friends from "./friends.json"
+import Header from './components/Header'
 
 const contain = {
   display: 'flex',
@@ -14,7 +15,7 @@ class App extends React.Component {
     friends,
     array,
     counter: 0,
-    maxScore:0
+    maxScore: 0
   }
 
   shuffle = (array) => {
@@ -40,30 +41,38 @@ class App extends React.Component {
     array = this.state.array;
     if (array.indexOf(id) === -1) {
       array.push(id)
-      
+
       this.shuffle(friends)
       this.setState({ array: array, friends, counter: this.state.counter + 1 })
     }
     else {
       array = []
-      this.setState({ array, maxScore:this.state.counter, counter: this.state.counter = 0 })
+      let maxScore = this.state.counter
+      if(maxScore > this.state.maxScore){
+        this.setState({ array, maxScore: this.state.counter, counter: this.state.counter = 0 })
+      }
+      else{
+        this.setState({ array, counter: this.state.counter = 0 })
+      }
+      
     }
   }
 
   render() {
     return (
-      <div className="container">
-        <div style={contain} className="row">
-          <h1>The counter is currently at {this.state.counter}</h1>
-          <h2>The current max score is {this.state.maxScore}</h2>
-          {friends.map(friend => (
+      <div>
+        <Header counter ={this.state.counter} maxScore = {this.state.maxScore} />
+        <div className="container">
+          <div style={contain} className="row">
+            {friends.map(friend => (
 
-            <Cards image={friend.img} id={friend.id} clicked={this.clicked} />
+              <Cards image={friend.img} id={friend.id} clicked={this.clicked} />
 
 
-          ))}
+            ))}
+          </div>
+
         </div>
-
       </div>
     )
   }
