@@ -1,8 +1,9 @@
-import React from 'react'
-import Cards from './components/Cards'
-import friends from "./friends.json"
-import Header from './components/Header'
-import Middle from './components/Middle'
+import React from 'react';
+import Cards from './components/Cards';
+import friends from "./friends.json";
+import Header from './components/Header';
+import Middle from './components/Middle';
+import Footer from './components/Footer'
 
 // const contain = {
 //   display: 'flex',
@@ -22,7 +23,9 @@ class App extends React.Component {
     friends,
     array,
     counter: 0,
-    maxScore: 0
+    maxScore: 0,
+    quote:'Click Any card to play, but only click Once!',
+    color:'#fff'
   }
 
   shuffle = (array) => {
@@ -50,13 +53,13 @@ class App extends React.Component {
       array.push(id)
 
       this.shuffle(friends)
-      this.setState({ array: array, friends, counter: this.state.counter + 1 })
+      this.setState({ array: array, friends, counter: this.state.counter + 1,quote:"Correct!", color:'green' })
     }
     else {
       array = []
       let maxScore = this.state.counter
       if (maxScore > this.state.maxScore) {
-        this.setState({ array, maxScore: this.state.counter, counter: this.state.counter = 0 })
+        this.setState({ array, maxScore: this.state.counter, counter: this.state.counter = 0, quote:"Already Been Clicked!", color:'red' })
       }
       else {
         this.setState({ array, counter: this.state.counter = 0 })
@@ -68,7 +71,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Header counter={this.state.counter} maxScore={this.state.maxScore} />
+        <Header quote = {this.state.quote} color={this.state.color} counter={this.state.counter} maxScore={this.state.maxScore} />
         <div>
           <Middle />
           
@@ -88,6 +91,7 @@ class App extends React.Component {
           </div>
 
         </div>
+        <Footer/>
       </div>
     )
   }

@@ -30,5 +30,13 @@
   {
     "img":"https://i.imgur.com/QhwdzSi.jpg",
     "id":6
+  },
+  {
+    "img": "https://si.wsj.net/public/resources/images/BN-PT530_IVERSO_P_20160909112145.jpg",
+    "id": 7
+  },
+  {
+    "img":"https://media.gq.com/photos/55828cfd1177d66d68d53084/master/w_1024%2Cc_limit/blogs-the-feed-steve-nash-elegy-los-angeles-lakers-basketball-nba.jpg",
+    "id":8
   }
 ]

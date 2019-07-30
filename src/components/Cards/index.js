@@ -1,7 +1,7 @@
 import React from 'react'
 
 const cardStyle = {
-  height:'350px',
+  height:'250px',
   width:"300px",
   margin:'10px',
   boxShadow: '3px 3px 5px 6px #ccc',

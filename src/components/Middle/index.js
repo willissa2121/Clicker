@@ -2,14 +2,22 @@ import React from 'react'
 
 
 const styles = {
-  background:'url(https://image.freepik.com/free-vector/geometric-medical-concept-white-background_1017-15462.jpg)',
-  height:"40vh",
+  paddingTop:'20vh',
+  background:'blue'
+}
+
+const styles2 = {
+  color:'#fff',
+  fontWeight:600
 }
 
 export default function Middle() {
   return (
-    <div className='container-fluid' style={styles}>
-      
+    <div style={styles} className="jumbotron text-center">
+      <h1 style={styles2} className="display-4">The Basketball Clicky Game</h1>
+      <p style={styles2} className="lead">Click on a picture to begin. If you have never clicked it before, you get a point. If its been clicked before, you lose!</p>
+
+
     </div>
   )
 }
