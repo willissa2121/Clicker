@@ -3,10 +3,16 @@ import Cards from './components/Cards'
 import friends from "./friends.json"
 import Header from './components/Header'
 
-const contain = {
-  display: 'flex',
-  flexDirection: "row",
-  margin: '10px'
+// const contain = {
+//   display: 'flex',
+//   flexDirection: "row",
+//   margin: '10px',
+//   cursor: 'pointer'
+// }
+
+const center = {
+  alignItems:'center',
+  margin:'0 auto'
 }
 let array = []
 class App extends React.Component {
@@ -48,28 +54,33 @@ class App extends React.Component {
     else {
       array = []
       let maxScore = this.state.counter
-      if(maxScore > this.state.maxScore){
+      if (maxScore > this.state.maxScore) {
         this.setState({ array, maxScore: this.state.counter, counter: this.state.counter = 0 })
       }
-      else{
+      else {
         this.setState({ array, counter: this.state.counter = 0 })
       }
-      
+
     }
   }
 
   render() {
     return (
       <div>
-        <Header counter ={this.state.counter} maxScore = {this.state.maxScore} />
-        <div className="container">
-          <div style={contain} className="row">
-            {friends.map(friend => (
-
-              <Cards image={friend.img} id={friend.id} clicked={this.clicked} />
+        <Header counter={this.state.counter} maxScore={this.state.maxScore} />
+        <div>
+          <div  className='container'>
+            <div className='row' style={center}>
 
 
-            ))}
+              {friends.map(friend => (
+
+                <Cards image={friend.img} id={friend.id} clicked={this.clicked} />
+
+
+              ))}
+
+            </div>
           </div>
 
         </div>
