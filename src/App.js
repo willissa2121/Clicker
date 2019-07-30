@@ -2,6 +2,7 @@ import React from 'react'
 import Cards from './components/Cards'
 import friends from "./friends.json"
 import Header from './components/Header'
+import Middle from './components/Middle'
 
 // const contain = {
 //   display: 'flex',
@@ -69,7 +70,10 @@ class App extends React.Component {
       <div>
         <Header counter={this.state.counter} maxScore={this.state.maxScore} />
         <div>
+          <Middle />
+          
           <div  className='container'>
+            
             <div className='row' style={center}>
 
 
